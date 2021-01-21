@@ -54,6 +54,14 @@ function App() {
     }
   };
 
+  const verifiedCeros = (item) => {
+    if (item[0].length === 0 && item[1].length === 0) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
   return (
     <div className="container">
       <div className="input-container">
@@ -69,6 +77,7 @@ function App() {
         {niveles.map((item, idx) => {
           return (
             <div className="tablero-maya">
+              {verifiedCeros(item) && <div className="cero" />}
               {item[1].map(() => {
                 return <div key={idx} className="uno" />;
               })}
